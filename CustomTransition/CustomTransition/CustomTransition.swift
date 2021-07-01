@@ -18,7 +18,7 @@ class CustomTransition: NSObject, UIViewControllerTransitioningDelegate {
         }
         return CustomDismissAnimation(interactionController: settingVC.swipeDismissInteractionController)
     }
-
+    
     func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         guard let animator = animator as? CustomDismissAnimation,
               let interactionController = animator.interactionController,

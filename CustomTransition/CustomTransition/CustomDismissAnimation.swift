@@ -48,7 +48,7 @@ class CustomDismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
                                 options: .calculationModeCubic) {
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                fromVC.homeVCSnapshotView.transform3D = CATransform3DIdentity
+                fromVC.homeVCSnapshotView.layer.transform = CATransform3DIdentity
             }
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
@@ -59,7 +59,13 @@ class CustomDismissAnimation: NSObject, UIViewControllerAnimatedTransitioning {
             
             if !transitionContext.transitionWasCancelled {
                 fromView.removeFromSuperview()
+                // recover the homeview's original appearance
                 toView.layer.transform = CATransform3DIdentity
+                toView.frame = originalFrame
+                toView.layer.shadowOffset = CGSize(width: 0, height: -3);
+                toView.layer.shadowRadius = 0;
+                toView.layer.shadowOpacity = 0;
+                toView.layer.masksToBounds = false;
             }
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }

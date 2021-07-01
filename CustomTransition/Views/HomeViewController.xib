@@ -25,7 +25,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="goHomeVC:" destination="-1" eventType="touchUpInside" id="Gv8-xF-gws"/>
+                        <action selector="goSettingView:" destination="-1" eventType="touchUpInside" id="JGX-qV-ye5"/>
                     </connections>
                 </button>
             </subviews>
